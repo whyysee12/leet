@@ -1,16 +1,21 @@
 class Solution {
     public boolean isValid(String s) {
-        Stack <Character> st = new Stack<>();
+        char []ch = new char[s.length()];
+        int top=-1;
         for(int i=0;i<s.length();i++){
-            char ch = s.charAt(i);
-            if(ch=='(' || ch=='[' || ch=='{' ) st.push(ch);
+            char c=s.charAt(i);
+            if(c=='(' || c=='[' || c=='{' ){
+                top++;
+                ch[top]=c;
+            }
             else{
-                if(st.size()==0) return false;
-                char top = st.peek();
-                if(ch==')' && top=='(' || ch=='}' && top=='{' || ch==']' && top=='[') st.pop();
+                if(top==-1) return false;
+                char x = ch[top];
+                if(c==')' && x=='(' || c=='}' && x=='{' || c==']' && x=='[') top--;
                 else return false;
             }
+
         }
-        return st.size()==0;
+        return top==-1;
     }
 }
