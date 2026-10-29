@@ -1,24 +1,21 @@
 class Solution {
     public long sumAndMultiply(int n) {
-        if(n==0) return 0;
-        String res="";
+        long sum=0;
+        int finall=0;
+        int k=1;
         while(n>0){
             int digit=n%10;
             if(digit!=0){
-                res=digit+res;
+                sum+=digit;
+                finall+=k*digit;
+                k*=10;
+
             }
             n=n/10;
-        }
-        int sum=0;
-        long result = Long.parseLong(res);
-        long num = result;
-        while(num>0){
-            int no=(int)num%10;
-            sum+=no;
-            num=num/10;
 
         }
-        return result*sum;
+        return sum*finall;
+
         
     }
 }
