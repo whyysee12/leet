@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 class Solution {
     public int[] arrayRankTransform(int[] arr) {
         if (arr.length == 0) return arr;
